@@ -1,9 +1,12 @@
 Topologist
 =======
 
-A [molecular dynamics](https://en.wikipedia.org/wiki/Molecular_dynamics) simulation of liquid argon. The simulation is based on A. Rahman's 1964 paper, ["Correlations in the Motion of Atoms in Liquid Argon"](http://pages.jh.edu/pfleming/compbio/files/rahman_physrev_1964.pdf). In summary, 864 point masses interact with a Lennard-Jones potential and obey classical equations of motion.
+Computer simulation has allowed scientists and engineers to model a wide variety of chemical and physical systems. A plethora of techniques exist, ranging from highly accurate, but computationally expensive quantum mechanical methods to cheap and approximate course-grained methods. Regardless of the technique/software used, the <a href="http://en.wikipedia.org/wiki/Topology_(chemistry)" target="_blank">topology</a>
+ of the physical system must be completely described. For geometrically complicated systems, this can be a tedious and error-prone task.  
+
+Topologist makes this task a breeze. Your life is about to get a whole lot simpler.
 
 Usage
 ------
 
-	python3 build.py <number of steps>
+	python3 topologist.py input.pdb output.top
