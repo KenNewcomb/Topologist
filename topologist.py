@@ -1,9 +1,7 @@
 ### topologist.py: Build a molecular topology file from a coordinate file.
 ## Your life is about to get a whole lot easier. ##
 import sys
-import parser
-import processor
-import generator
+from modules import parser, processor, generator
 
 def usage():
 	"""Instruct the user how to use Topologist"""
@@ -31,22 +29,32 @@ if len(sys.argv) != 3:
 	usage()
 	exit()
 
-# Check for file type/extension
-full_file = sys.argv[1]
-file_list = full_file.split('.')
-filename = file_list[0]
-extension = file_list[1]
+# Check input/output file type
+input_file = sys.argv[1]
+inputs = input_file.split('.')
+input_filename = inputs[0]
+input_extension = inputs[1]
+
+output_file = sys.argv[2]
+outputs = output_file.split('.')
+output_filename = outputs[0]
+output_extension = outputs[1]
 
 # Call appropriate parser
-if extension == 'pdb':
+if input_extension == 'pdb':
 	print("Protein DataBank (.pdb) file detected.")
-	parsed_file = parser.parsePDB(full_file)
-	distances = processor.findAtomicDistances(parsed_file[2:])
-	processor.findBonds(parsed_file[2:], distances)
+	parsed_file = parser.parsePDB(input_file)
+	distances = processor.findAtomicDistances(parsed_file)
+	processor.findBonds(parsed_file, distances)
 	
-elif extension == 'gro':
+elif input_extension == 'gro':
 	print("GROMOS Coordinate File (.gro) file detected.")
-	parser.parseGRO(full_file)
+	parser.parseGRO(input_file)
 else:
 	print("File extension not supported.")
 	usage()
+
+# Call appropriate generator
+if output_extension == 'top':
+	print("Generating GROMACS topology file (.top).")
+	pass

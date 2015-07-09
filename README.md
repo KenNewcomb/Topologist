@@ -1,10 +1,24 @@
-Topologist
-=======
+	
+            --------------------------------------------------
+             ______                  __            _      __ 
+            /_  __/___  ____  ____  / /___  ____ _(_)____/ /_
+             / / / __ \/ __ \/ __ \/ / __ \/ __ `/ / ___/ __/
+            / / / /_/ / /_/ / /_/ / / /_/ / /_/ / (__  ) /_  
+           /_/  \____/ .___/\____/_/\____/\__, /_/____/\__/  
+                     /_/                  /____/              
+           ---------------------------------------------------
+
+
 
 Computer simulation has allowed scientists and engineers to model a wide variety of chemical and physical systems. A plethora of techniques exist, ranging from highly accurate, but computationally expensive quantum mechanical methods to cheap and approximate course-grained methods. Regardless of the technique/software used, the <a href="http://en.wikipedia.org/wiki/Topology_(chemistry)" target="_blank">topology</a>
  of the physical system must be completely described. For geometrically complicated systems, this can be a tedious and error-prone task.  
 
 Topologist makes this task a breeze. Your life is about to get a whole lot simpler.
+
+Supported Formats
+----------------
+
+Topologist can currently read .pdb and .gro files, and can output .top (GROMACS topology) files. 
 
 Usage
 ------
