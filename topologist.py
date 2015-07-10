@@ -43,9 +43,9 @@ output_extension = outputs[1]
 # Call appropriate parser
 if input_extension == 'pdb':
 	print("Protein DataBank (.pdb) file detected.")
-	parsed_file = parser.parsePDB(input_file)
-	distances = processor.findAtomicDistances(parsed_file)
-	processor.findBonds(parsed_file, distances)
+	atom_list = parser.parsePDB(input_file)
+	distances = processor.findAtomicDistances(atom_list)
+	bonds = processor.findBonds(atom_list, distances)
 	
 elif input_extension == 'gro':
 	print("GROMOS Coordinate File (.gro) file detected.")
@@ -57,4 +57,5 @@ else:
 # Call appropriate generator
 if output_extension == 'top':
 	print("Generating GROMACS topology file (.top).")
-	pass
+	generator.GROMACSBonds(bonds)
+	generator.GROMACSAngles()
