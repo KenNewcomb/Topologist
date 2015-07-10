@@ -1,4 +1,4 @@
-# Processor.py: Process a parsed file. Find bond lengths, angles, etc.
+# processor.py: Process a parsed file. Find bond lengths, angles, etc.
 from math import sqrt
 from classes import bond
 
@@ -23,7 +23,7 @@ def findBonds(atom_list, distances):
 	found_bonds = []
 	for length in bond_lengths:
 		for distance in distances:
-			if abs(float(length) - float(distance[2])) < 0.15:
+			if abs(float(length) - float(distance[2])) < 0.14:
 				atom1 = atom_list[distance[0]]
 				atom2 = atom_list[distance[1]]
 				dr    = distance[2]

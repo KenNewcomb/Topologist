@@ -21,7 +21,7 @@ def parsePDB(filename):
 	for line in opened_file[firstatom:]:
 		if line.strip() == "END":
 			print("Parsing complete.")
-			return parsed_file
+			return atom_list  
 		this_line = line.split()
 		index     = opened_file.index(line)
 		type      = this_line[2]

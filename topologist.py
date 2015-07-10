@@ -46,7 +46,7 @@ if input_extension == 'pdb':
 	atom_list = parser.parsePDB(input_file)
 	distances = processor.findAtomicDistances(atom_list)
 	bonds = processor.findBonds(atom_list, distances)
-	
+
 elif input_extension == 'gro':
 	print("GROMOS Coordinate File (.gro) file detected.")
 	parser.parseGRO(input_file)
