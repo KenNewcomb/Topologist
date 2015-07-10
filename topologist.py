@@ -1,16 +1,6 @@
 ### topologist.py: Build a molecular topology file from a coordinate file.
-## Your life is about to get a whole lot easier. ##
 import sys
 from modules import parser, processor, generator
-
-def usage():
-	"""Instruct the user how to use Topologist"""
-	print("Usage: python3 build.py input.gro topol.top")
-	print("Currently supported molecular coordinate formats:")
-	print("\t.gro: GROMOS file format")
-	print("\t.pdb: Protein DataBank file format")
-	print("Currently supported molecular topology formats:")
-	print("\t.top: GROMACS topology file")
 
 def logo():
 	print("""
@@ -24,38 +14,37 @@ def logo():
 	   ---------------------------------------------------\n""")
 logo()
 
-# Check for sane input
-if len(sys.argv) != 3:
-	usage()
+# Check for input file
+try:
+	settings_file = open('settings', 'r').readlines()
+	settings = parser.parseSettings(settings_file)
+except FileNotFoundError:
+	print("No input file found! See program documentation.")
 	exit()
 
-# Check input/output file type
-input_file = sys.argv[1]
-inputs = input_file.split('.')
-input_filename = inputs[0]
-input_extension = inputs[1]
+# Loop over coordinate files.
+input_files = settings.getInputFiles()
+for input_file in input_files:
+	file_number = input_files.index(input_file)
+	input_extension = settings.getInputType(file_number)
+	output_extension = settings.getOutputType()
 
-output_file = sys.argv[2]
-outputs = output_file.split('.')
-output_filename = outputs[0]
-output_extension = outputs[1]
+	# Call appropriate input parser and processor
+	if input_extension == 'pdb':
+		print("Protein DataBank (.pdb) file detected.")
+		atom_list = parser.parsePDB(input_file)
+		distances = processor.findAtomicDistances(atom_list)
+		bonds = processor.findBonds(atom_list, distances, settings.getBonds())
 
-# Call appropriate parser
-if input_extension == 'pdb':
-	print("Protein DataBank (.pdb) file detected.")
-	atom_list = parser.parsePDB(input_file)
-	distances = processor.findAtomicDistances(atom_list)
-	bonds = processor.findBonds(atom_list, distances)
+	elif input_extension == 'gro':
+		print("GROMACS Coordinate File (.gro) file detected.")
+		parser.parseGRO(input_file)
+	else:
+		print("File extension not supported.")
+		exit()
 
-elif input_extension == 'gro':
-	print("GROMOS Coordinate File (.gro) file detected.")
-	parser.parseGRO(input_file)
-else:
-	print("File extension not supported.")
-	usage()
-
-# Call appropriate generator
-if output_extension == 'top':
-	print("Generating GROMACS topology file (.top).")
-	generator.GROMACSBonds(bonds)
-	generator.GROMACSAngles()
+	# Call appropriate output generator
+	if output_extension == 'top':
+		print("Generating GROMACS topology file (.top).")
+		generator.GROMACSBonds(bonds)
+		generator.GROMACSAngles()

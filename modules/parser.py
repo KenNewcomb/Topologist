@@ -1,5 +1,25 @@
 # parser.py: Parses various filetypes.
-from classes import atom
+from classes import atom, settings
+
+def parseSettings(file_list):
+	"""Parses the input file."""
+	setting_object = settings.Settings()
+	for line in file_list:
+		this_line = line.split()
+		if this_line == []:
+			pass
+		elif this_line[0] == 'input':
+			filename = this_line[1]
+			setting_object.addInput(filename)
+		elif this_line[0] == 'bond':
+			atom1 = this_line[1]
+			atom2 = this_line[2]
+			distance = this_line[3]
+			setting_object.addBond(atom1, atom2, distance)
+		elif this_line[0] == 'output':
+			output = this_line[1]
+			setting_object.addOutput(output)
+	return setting_object
 
 def parsePDB(filename):
 	"""Parses a .pdb file."""

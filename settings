@@ -1,0 +1,5 @@
+input U20orig.pdb
+
+bond U PT 1.8
+
+output top
