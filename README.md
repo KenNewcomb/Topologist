@@ -4,7 +4,7 @@ Topologist (still in development!)
 Computer simulation has allowed scientists and engineers to model a wide variety of chemical and physical systems. A plethora of techniques exist, ranging from highly accurate quantum mechanical models to simpler, more approximate models. Regardless of the technique/software used, the <a href="http://en.wikipedia.org/wiki/Force_field_(chemistry)" target="_blank">interactions between particles</a>
 must be completely described.  For species with a complicated intramolecular structure, this task can become tedious and error-prone.
 
-Topologist makes this task a breeze. You simply provide it the molecular coordinate files describing your system, as well as some basic information about the bonding. Then, Topologist generates the topology for your software of choice. Your life is about to get a whole lot simpler.
+Topologist makes this task a breeze. You simply provide it the molecular coordinate files describing your system, as well as some basic information about the bonding. Then, Topologist generates the topology file for your software of choice. Your life is about to get a whole lot simpler.
 
 Supported Formats
 ----------------
