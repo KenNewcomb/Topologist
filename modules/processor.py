@@ -18,7 +18,6 @@ def findAtomicDistances(atom_list):
 
 def findBonds(atom_list, connectivities, bonds):
 	found_bonds = []
-	print(bonds)	
 	# Loop over bonds to check
 	for pair in bonds:
 		type1check = pair[0]

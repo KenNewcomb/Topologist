@@ -28,7 +28,6 @@ def parseSettings(file_list):
 
 def parsePDB(filename):
 	"""Parses a .pdb file."""
-	print("Parsing file...")
 	# Create a list to store atoms.
 	atom_list = []
 
@@ -55,7 +54,11 @@ def parsePDB(filename):
 		y         = float(this_line[6])
 		z         = float(this_line[7])
 		particle = atom.Atom(index, type, residue, x, y, z)
-		print("Created atom. Index={0}, Type={1}, Res={2}, x={3}, y={4}, z={5}".format(index, type, residue, x, y, z))
 		atom_list.append(particle)
 	print("Parsing complete.")
 	return atom_list   
+
+def parseGRO(filename):
+	"""Parses a .gro file."""
+	print("Cannot parse .gro files yet.")
+	exit()
