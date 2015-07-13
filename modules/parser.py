@@ -3,9 +3,14 @@ from classes import atom, settings
 
 def parseSettings(file_list):
 	"""Parses the input file."""
+	# Make a new settings object
 	setting_object = settings.Settings()
+
+	# Read the file line by line
 	for line in file_list:
 		this_line = line.split()
+
+		# If the line is blank
 		if this_line == []:
 			pass
 		elif this_line[0] == 'input':
@@ -43,13 +48,14 @@ def parsePDB(filename):
 			print("Parsing complete.")
 			return atom_list  
 		this_line = line.split()
-		index     = opened_file.index(line)
+		index     = opened_file[firstatom-1:].index(line)
 		type      = this_line[2]
 		residue   = this_line[3]
 		x         = float(this_line[5])
 		y         = float(this_line[6])
 		z         = float(this_line[7])
 		particle = atom.Atom(index, type, residue, x, y, z)
+		print("Created atom. Index={0}, Type={1}, Res={2}, x={3}, y={4}, z={5}".format(index, type, residue, x, y, z))
 		atom_list.append(particle)
 	print("Parsing complete.")
 	return atom_list   
