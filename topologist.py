@@ -1,6 +1,7 @@
 ### topologist.py: Build a molecular topology file from a coordinate file.
 import sys
 from modules import parser, processor, generator
+from classes import topology as top
 import time
 
 def logo():
@@ -13,9 +14,12 @@ def logo():
 	   /_/  \____/ .___/\____/_/\____/\__, /_/____/\__/  
 	             /_/                  /____/              
 	   --------------------------------------------------
-	   Consuming complex chemical topologies since 2015.""")
+	   Generating complex chemical topologies since 2015.\n""")
+
+# Users gotta see the logo :)
 logo()
 time.sleep(2)
+
 # Check for settings file
 try:
 	settings_file = open('settings', 'r').readlines()
@@ -24,18 +28,19 @@ except FileNotFoundError:
 	print("No input file found! See program documentation.")
 	exit()
 
-# Loop over inputs to process
 input_files = settings.getInputFiles()
+topology = top.Topology()
+
+# Loop over molecules to process
 for input_file in range(0, len(input_files)):
 	input_extension = settings.getInputType(input_file)
 	output_extension = settings.getOutputType()
 
-	# Call appropriate input parser and processor
+	# Call appropriate input parser
 	if input_extension == 'pdb':
 		print("Protein DataBank (.pdb) file detected.")
-		atom_list = parser.parsePDB(input_files[0])
-		distances = processor.findAtomicDistances(atom_list)
-		bonds = processor.findBonds(atom_list, distances, settings.getBonds())
+		new_molecule = parser.parsePDB(input_files[input_file])
+		topology.addMolecule(new_molecule)
 
 	elif input_extension == 'gro':
 		print("GROMACS Coordinate File (.gro) file detected.")
@@ -44,9 +49,15 @@ for input_file in range(0, len(input_files)):
 		print("File extension not supported.")
 		exit()
 
-	# Call appropriate output generator
-	if output_extension == 'top':
-		print("Generating GROMACS topology file (.top).")
-		generator.GROMACSBonds(bonds)
-		generator.GROMACSAngles()
-		generator.writeTopology()
+# Process topology
+processor.findAtomicDistances(topology)
+processor.findBonds(topology)
+
+# Call appropriate output generator
+if output_extension == 'top':
+	print("Generating GROMACS topology file (.top).")
+	defaults = generator.GROMACSDefaults()
+	atoms = generator.GROMACSAtoms(topology.getAtoms())
+	generator.GROMACSBonds(topology.getBonds())
+	generator.GROMACSAngles()
+	generator.writeTopology()

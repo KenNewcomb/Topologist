@@ -2,16 +2,14 @@
 
 class Atom:
 	index   = 0
-	type    = ""
-	residue = ""
+	atomtype    = ""
 	x       = 0.0
 	y       = 0.0
 	z       = 0.0
 
-	def __init__(self, index, type, residue, x, y, z):
+	def __init__(self, index, atomtype, x, y, z):
 		self.index    = index
-		self.type     = type
-		self.residue  = residue
+		self.atomtype = atomtype
 		self.x        = float(x)
 		self.y        = float(y)
 		self.z        = float(z)

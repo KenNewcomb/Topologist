@@ -1,4 +1,5 @@
 # bond.py: A class describing a bond between two atoms.
+
 class Bond:
 
 	def __init__(self, atom1, atom2, distance):

@@ -1,5 +1,5 @@
 # parser.py: Parses various filetypes.
-from classes import atom, settings
+from classes import atom, molecule, settings
 
 def parseSettings(file_list):
 	"""Parses the input file."""
@@ -28,8 +28,8 @@ def parseSettings(file_list):
 
 def parsePDB(filename):
 	"""Parses a .pdb file."""
-	# Create a list to store atoms.
-	atom_list = []
+	# Create a new molecule object.
+	new_molecule = molecule.Molecule()
 
 	# Read the file into memory.
 	opened_file = open(filename, 'r').readlines()
@@ -43,20 +43,23 @@ def parsePDB(filename):
 
 	# Extract the coordinates
 	for line in opened_file[firstatom:]:
+		# If you reach the end of a PDB file via an END statement
 		if line.strip() == "END":
 			print("Parsing complete.")
-			return atom_list  
+			return new_molecule
+		# Split the line into its various data
 		this_line = line.split()
+		# Set the index, x, y, and z for atom; set the residue type for the molecule
 		index     = opened_file[firstatom-1:].index(line)
-		type      = this_line[2]
-		residue   = this_line[3]
+		atomtype  = this_line[2]
+		new_molecule.setResidue(this_line[3])
 		x         = float(this_line[5])
 		y         = float(this_line[6])
 		z         = float(this_line[7])
-		particle = atom.Atom(index, type, residue, x, y, z)
-		atom_list.append(particle)
+		particle = atom.Atom(index, atomtype, x, y, z)
+		new_molecule.addAtom(particle)
 	print("Parsing complete.")
-	return atom_list   
+	return new_molecule
 
 def parseGRO(filename):
 	"""Parses a .gro file."""

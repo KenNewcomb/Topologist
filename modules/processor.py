@@ -2,19 +2,20 @@
 from math import sqrt
 from classes import bond
 
-def findAtomicDistances(atom_list):
-	"""Finds the distance between all atoms in a list."""
-	connectivities = []
-	for index1 in range(0, len(atom_list)-1):
-		for index2 in range(index1+1, len(atom_list)):
-			dx = atom_list[index1].x - atom_list[index2].x
-			dy = atom_list[index1].y - atom_list[index2].y
-			dz = atom_list[index1].z - atom_list[index2].z
-			distance = sqrt(dx**2 + dy**2 + dz**2)
-			atom1 = atom_list[index1]
-			atom2 = atom_list[index2]
-			connectivities.append([atom1, atom2, distance])
-	return connectivities
+def findAtomicDistances(topology):
+	"""Finds the distance between all atoms in each molecule."""
+	molecules = topology.getMolecules()
+	for molecule in molecules:
+		atoms = molecule.getAtoms()
+		for index1 in range(0, len(atoms)-1):
+			for index2 in range(index1+1, len(atoms)):
+				dx = atoms[index1].x - atoms[index2].x
+				dy = atoms[index1].y - atoms[index2].y
+				dz = atoms[index1].z - atoms[index2].z
+				distance = sqrt(dx**2 + dy**2 + dz**2)
+				atom1 = atoms[index1]
+				atom2 = atoms[index2]
+				molecule.addConnectivty([atom1, atom2, distance])
 
 def findBonds(atom_list, connectivities, bonds):
 	found_bonds = []
