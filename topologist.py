@@ -18,7 +18,7 @@ def logo():
 
 # Users gotta see the logo :)
 logo()
-time.sleep(2)
+time.sleep(1)
 
 # Check for settings file
 try:
@@ -51,13 +51,15 @@ for input_file in range(0, len(input_files)):
 
 # Process topology
 processor.findAtomicDistances(topology)
-processor.findBonds(topology)
+processor.findBonds(topology, settings)
 
 # Call appropriate output generator
 if output_extension == 'top':
 	print("Generating GROMACS topology file (.top).")
-	defaults = generator.GROMACSDefaults()
-	atoms = generator.GROMACSAtoms(topology.getAtoms())
-	generator.GROMACSBonds(topology.getBonds())
-	generator.GROMACSAngles()
+	generator.GROMACSDefaults()
+	generator.GROMACSAtoms(topology.getAtomTypes())
+	generator.GROMACSNonbonded()
+	for molecule in topology.getMolecules():
+		generator.GROMACSBonds(molecule.getBonds())
+		generator.GROMACSAngles(molecule.getAngles())
 	generator.writeTopology()

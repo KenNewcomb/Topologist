@@ -1,6 +1,6 @@
 # processor.py: Process a parsed file. Find bond lengths, angles, etc.
 from math import sqrt
-from classes import bond as James
+from classes import bond
 
 def findAtomicDistances(topology):
 	"""Finds the distance between all atoms in each molecule."""
@@ -46,7 +46,7 @@ def findBonds(topology, settings):
 							atom1 = connectivity[0]
 							atom2 = connectivity[1]
 							dr    = connectivity[2]
-							found_bond = James.Bond(atom1, atom2, dr)
+							found_bond = bond.Bond(atom1, atom2, dr)
 							molecule.addBond(found_bond)
 
 					# If one distance is given, search within 0.1 angstroms.
@@ -55,8 +55,9 @@ def findBonds(topology, settings):
 							atom1 = connectivity[0]
 							atom2 = connectivity[1]
 							dr    = connectivity[2]
-							found_bond = James.Bond(atom1, atom2, dr)
+							found_bond = bond.Bond(atom1, atom2, dr)
 							molecule.addBond(found_bond)
+	return found_bonds
 
 def findAtomicAngles(atom_list):
 	angles = []

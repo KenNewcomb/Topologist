@@ -13,10 +13,10 @@ class Topology():
 
 	def getAtomTypes(self):
 		atomtypes = []
-		for molecule in molecules:
-			for atom in molecule:
-				if atom not in atomtypes:
-					atomtypes.append(atom)
+		for molecule in self.molecules:
+			for atom in molecule.getAtoms():
+				if atom.getAtomType() not in atomtypes:
+					atomtypes.append(atom.getAtomType())
 		return atomtypes
 
 	def setOutputType(self, output_type):

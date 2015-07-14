@@ -13,3 +13,6 @@ class Atom:
 		self.x        = float(x)
 		self.y        = float(y)
 		self.z        = float(z)
+	
+	def getAtomType(self):
+		return self.atomtype

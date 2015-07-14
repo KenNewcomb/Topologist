@@ -18,7 +18,7 @@ class Molecule():
 		self.bonds.append(bond)
 	
 	def addConnectivity(self, connectivity):
-		self.connectivity.append(connectivity)
+		self.connectivities.append(connectivity)
 
 	def addAngle(self, angle):
 		self.angles.append(bond)
@@ -39,4 +39,4 @@ class Molecule():
 		return self.residue
 
 	def getConnectivities(self):
-		return self.connectivites
+		return self.connectivities

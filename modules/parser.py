@@ -9,7 +9,6 @@ def parseSettings(file_list):
 	# Read the file line by line
 	for line in file_list:
 		this_line = line.split()
-
 		# If the line is blank
 		if this_line == []:
 			pass
