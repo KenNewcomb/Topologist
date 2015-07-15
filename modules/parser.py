@@ -1,20 +1,20 @@
 # parser.py: Parses various filetypes.
 from classes import atom, molecule, settings
 
-def parseSettings(file_list):
+def parseSettings(settings_file):
 	"""Parses the input file."""
 	# Make a new settings object
 	setting_object = settings.Settings()
 
 	# Read the file line by line
-	for line in file_list:
+	for line in settings_file:
 		this_line = line.split()
 		# If the line is blank
 		if this_line == []:
 			pass
 		elif this_line[0] == 'input':
-			filename = this_line[1]
-			setting_object.addInput(filename)
+			for filename in this_line[1:]:
+				setting_object.addInput(filename)
 		elif this_line[0] == 'bond':
 			atom1 = this_line[1]
 			atom2 = this_line[2]
@@ -28,7 +28,8 @@ def parseSettings(file_list):
 def parsePDB(filename):
 	"""Parses a .pdb file."""
 	# Create a new molecule object.
-	new_molecule = molecule.Molecule()
+	new_molecule = []
+	new_molecule = molecule.Molecule(filename)
 
 	# Read the file into memory.
 	opened_file = open(filename, 'r').readlines()
@@ -36,7 +37,7 @@ def parsePDB(filename):
 	# Find first coordinate entry.
 	for line in range(0, len(opened_file)):
 		# Find first HETATM keyword
-		if opened_file[line].split()[0] == 'HETATM':
+		if opened_file[line].split()[0] == 'HETATM' or opened_file[line].split()[0] == 'ATOM':
 			firstatom = line
 			break
 
@@ -49,14 +50,14 @@ def parsePDB(filename):
 		# Split the line into its various data
 		this_line = line.split()
 		# Set the index, x, y, and z for atom; set the residue type for the molecule
-		index     = opened_file[firstatom-1:].index(line)
+		index     = opened_file[firstatom:].index(line)+1
 		atomtype  = this_line[2]
-		new_molecule.setResidue(this_line[3])
 		x         = float(this_line[5])
 		y         = float(this_line[6])
 		z         = float(this_line[7])
 		particle = atom.Atom(index, atomtype, x, y, z)
 		new_molecule.addAtom(particle)
+		print("NEW ATOM ADDED IN THE PARSER.")
 	print("Parsing complete.")
 	return new_molecule
 

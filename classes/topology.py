@@ -1,9 +1,14 @@
 # topology.py: a class representing a chemical topology.
+from classes import molecule
 
 class Topology():
 
 	molecules = []
 	output_type = ""
+
+	def __init__(self):
+		self.molecules = []
+		self.output_type = ""
 
 	def addMolecule(self, molecule):
 		self.molecules.append(molecule)

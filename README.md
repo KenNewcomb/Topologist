@@ -3,7 +3,7 @@ Topologist (in development!)
 
 Atomistic simulation has allowed scientists and engineers to model a wide variety of chemical systems. While a plethora of techniques exist, they all rely on a <a href="http://en.wikipedia.org/wiki/Force_field_(chemistry)" target="_blank">model for the interactions between and within molecules</a>.  For chemical species with a complicated intramolecular structure, this task can become tedious and error-prone.
 
-Topologist makes this task a breeze. You simply provide it the molecular coordinate files describing your system, as well as some basic information about the connectivity. Topologist then searches the coordinates for the bonds, and generates the topology file for your software of choice. Your life is about to get a whole lot simpler!
+Topologist makes this task a breeze. You simply provide it the molecular coordinate files describing your system, as well as some basic information about the connectivity. Topologist then searches the system for bonds, angles, and dihedrals, and generates the topology file for your software of choice.
 
 Supported Formats
 ----------------

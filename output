@@ -1,50 +1,50 @@
+[ defaults ]
 ;	nbfunc	comb-rule	gen-pairs	fudgeLJ	fudgeQQ
 	1	2	no	1	1
 
+[ atomtypes ]
 ;	name	atomic_num	mass	charge	ptype	sigma	epsil
-	U
-	PT
-	P
+	C
+	O
+	H
+	OW
+	H1
+	H2
+
+[ nonbond_params ]
+;	i	j	func	sigma	eps(c12)kJ/mol
+	C	O
+	C	H
+	C	OW
+	C	H1
+	C	H2
+	O	H
+	O	OW
+	O	H1
+	O	H2
+	H	OW
+	H	H1
+	H	H2
+	OW	H1
+	OW	H2
+	H1	H2
+
+[ moleculetype ]
+;	molname	nrexcl
+	methanol.pdb
 
 [ bonds ]
 ;	i	j	func	length		force.c
-	1	29	1	1.7791		No force constant given.
-	1	37	1	1.7786		No force constant given.
-	2	32	1	1.7914		No force constant given.
-	2	39	1	1.849		No force constant given.
-	3	34	1	1.7996		No force constant given.
-	3	36	1	1.8207		No force constant given.
-	4	28	1	1.8022		No force constant given.
-	4	38	1	1.7903		No force constant given.
-	5	27	1	1.757		No force constant given.
-	5	30	1	1.8298		No force constant given.
-	6	24	1	1.8255		No force constant given.
-	6	40	1	1.786		No force constant given.
-	7	21	1	1.7808		No force constant given.
-	7	25	1	1.805		No force constant given.
-	8	26	1	1.8649		No force constant given.
-	8	31	1	1.7963		No force constant given.
-	9	33	1	1.8041		No force constant given.
-	9	35	1	1.8048		No force constant given.
-	10	22	1	1.8025		No force constant given.
-	10	23	1	1.8119		No force constant given.
-	11	49	1	1.7787		No force constant given.
-	11	57	1	1.778		No force constant given.
-	12	52	1	1.7905		No force constant given.
-	12	59	1	1.8486		No force constant given.
-	13	54	1	1.7983		No force constant given.
-	13	56	1	1.8207		No force constant given.
-	14	48	1	1.8022		No force constant given.
-	14	58	1	1.7905		No force constant given.
-	15	47	1	1.7572		No force constant given.
-	15	50	1	1.8296		No force constant given.
-	16	44	1	1.8263		No force constant given.
-	16	60	1	1.7868		No force constant given.
-	17	41	1	1.7807		No force constant given.
-	17	45	1	1.8045		No force constant given.
-	18	46	1	1.8639		No force constant given.
-	18	51	1	1.7974		No force constant given.
-	19	53	1	1.8037		No force constant given.
-	19	55	1	1.8053		No force constant given.
-	20	42	1	1.8028		No force constant given.
-	20	43	1	1.8119		No force constant given.
+	1	2	1	1.4093		No force constant given.
+	2	6	1	1.0796		No force constant given.
+	1	3	1	1.0898		No force constant given.
+	1	4	1	1.0902		No force constant given.
+	1	5	1	1.0905		No force constant given.
+[ moleculetype ]
+;	molname	nrexcl
+	water.pdb
+
+[ bonds ]
+;	i	j	func	length		force.c
+	1	2	1	0.9994		No force constant given.
+	1	3	1	0.9994		No force constant given.

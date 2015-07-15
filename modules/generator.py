@@ -5,24 +5,33 @@ output_file = []
 def GROMACSDefaults():
 	"""Generates the [ defaults ]"""
 	global output_file
+	output_file.append("[ defaults ]")
 	output_file.append(";\tnbfunc\tcomb-rule\tgen-pairs\tfudgeLJ\tfudgeQQ")
 	output_file.append("\t{0}\t{1}\t{2}\t{3}\t{4}".format(1,2,'no',1,1))
 	output_file.append("")
 
 def GROMACSAtoms(atomtypes):
 	global output_file
+	output_file.append("[ atomtypes ]")
 	output_file.append(";\tname\tatomic_num\tmass\tcharge\tptype\tsigma\tepsil")
 	for atomtype in atomtypes:
 		output_file.append("\t{0}".format(atomtype))
 	output_file.append("")
 	pass
 
-def GROMACSNonbonded():
+def GROMACSNonbonded(atomtypes):
 	global output_file
-	pass
+	output_file.append("[ nonbond_params ]")
+	output_file.append(";\ti\tj\tfunc\tsigma\teps(c12)kJ/mol")
+	for atomtype1 in range(0, len(atomtypes)-1):
+		for atomtype2 in range(atomtype1, len(atomtypes)):
+			if atomtype1 != atomtype2:
+				output_file.append("\t{0}\t{1}".format(atomtypes[atomtype1], atomtypes[atomtype2]))
+	output_file.append("")
 
 def GROMACSBonds(bonds):
 	global output_file
+	print("PROCESSINGBONDS")
 	output_file.append("[ bonds ]")
 	output_file.append(";\ti\tj\tfunc\tlength\t\tforce.c")
 	for bond in bonds:
@@ -36,9 +45,12 @@ def GROMACSSystem():
 	global output_file
 	pass
 
-def GROMACSMolecules():
+def GROMACSMolecules(molecule):
 	global output_file
-	pass
+	output_file.append("[ moleculetype ]")
+	output_file.append(";\tmolname\tnrexcl")
+	output_file.append("\t{0}".format(molecule.getResidue()))
+	output_file.append("")
 
 def writeTopology():
 	global output_file

@@ -16,6 +16,7 @@ def findAtomicDistances(topology):
 				atom1 = atoms[index1]
 				atom2 = atoms[index2]
 				molecule.addConnectivity([atom1, atom2, distance])
+	return topology
 
 def findBonds(topology, settings):
 	"""Locates the bonds indicated in the settings file."""
@@ -57,6 +58,7 @@ def findBonds(topology, settings):
 							dr    = connectivity[2]
 							found_bond = James.Bond(atom1, atom2, dr)
 							molecule.addBond(found_bond)
+	return topology
 
 def findAtomicAngles(atom_list):
 	angles = []

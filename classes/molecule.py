@@ -7,10 +7,14 @@ class Molecule():
 	bonds = []
 	connectivities = []
 	angles = []
-
-	def __init__(self):
-		pass
 	
+	def __init__(self, residue):
+		self.residue = residue
+		self.atoms = []
+		self.bonds = []
+		self.connectivities = []
+		self.angles = []
+
 	def addAtom(self, atom):
 		self.atoms.append(atom)
 	
@@ -21,7 +25,7 @@ class Molecule():
 		self.connectivities.append(connectivity)
 
 	def addAngle(self, angle):
-		self.angles.append(bond)
+		self.angles.append(angle)
 	
 	def setResidue(self, residue):
 		self.residue = residue
@@ -35,7 +39,7 @@ class Molecule():
 	def getAngles(self):
 		return self.angles
 	
-	def getResidue(self, residue):
+	def getResidue(self):
 		return self.residue
 
 	def getConnectivities(self):
