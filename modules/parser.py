@@ -35,8 +35,12 @@ def parsePDB(filename):
 	new_molecule = molecule.Molecule()
 
 	# Read the file into memory.
-	opened_file = open(filename, 'r').readlines()
-	
+	try:
+		opened_file = open(filename, 'r').readlines()
+	except FileNotFoundError:
+		print("Could not find file: {0}".format(filename))
+		exit()
+
 	# Find first coordinate entry.
 	for line in range(0, len(opened_file)):
 		# Find first HETATM keyword
