@@ -21,6 +21,13 @@ def parseSettings(settings_file):
 			bond_length = this_line[4]
 			force_constant = this_line[5]
 			setting_object.addBond(atom1, atom2, distance, bond_length, force_constant)
+		elif this_line[0] == 'angle':
+			atom1 = this_line[1]
+			atom2 = this_line[2]
+			atom3 = this_line[3]
+			angle = this_line[4]
+			angle_constant = this_line[5]
+			setting_object.addAngle(atom1, atom2, atom3, angle, angle_constant)
 		elif this_line[0] == 'output':
 			output = this_line[1]
 			setting_object.addOutput(output)

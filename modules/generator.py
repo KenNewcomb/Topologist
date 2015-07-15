@@ -44,9 +44,13 @@ def GROMACSBonds(bonds, settings):
 		output_file.append("\t{0}\t{1}\t{2}\t{3}\t\t{4}".format(bond.atom1.index, bond.atom2.index, 1, settings.getBondLength(bond.atom1, bond.atom2), settings.getForceConstant(bond.atom1, bond.atom2)))
 	output_file.append("")
 	
-def GROMACSAngles(angles):
+def GROMACSAngles(angles, settings):
 	global output_file
-	pass
+	output_file.append("[ angles ]")
+	output_file.append(";\ti\tj\tk\tfunc\tangle\tforce.c")
+	for angle in angles:
+		output_file.append("\t{0}\t{1}\t{2}\t{3}\t{4}\t{5}".format(angle.atom1.index, angle.atom2.index, angle.atom3.index, 1, settings.getAngle(angle.atom1, angle.atom2, angle.atom3), settings.getAngleConstant(angle.atom1, angle.atom2, angle.atom3)))
+	output_file.append("")
 
 def GROMACSSystem():
 	global output_file
