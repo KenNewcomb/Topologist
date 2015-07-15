@@ -33,25 +33,23 @@ topology = top.Topology()
 for input_file in range(0, len(input_files)):
 	input_extension = settings.getInputType(input_file)
 	output_extension = settings.getOutputType()
-
+	
 	# Call appropriate input parser
 	if input_extension == 'pdb':
-		print("Protein DataBank (.pdb) file detected.")
 		new_molecule = parser.parsePDB(input_files[input_file])
 		topology.addMolecule(new_molecule)
 	elif input_extension == 'gro':
-		print("GROMACS Coordinate File (.gro) file detected.")
 		parser.parseGRO(input_file)
 	else:
 		print("File extension not supported.")
 		exit()
+
 # Process topology
 topology = processor.findAtomicDistances(topology)
 topology = processor.findBonds(topology, settings)
 
 # Call appropriate output generator
 if output_extension == 'top':
-	print("Generating GROMACS topology file (.top).")
 	generator.GROMACSDefaults()
 	generator.GROMACSAtoms(topology.getAtomTypes())
 	generator.GROMACSNonbonded(topology.getAtomTypes())

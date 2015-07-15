@@ -45,7 +45,6 @@ def parsePDB(filename):
 	for line in opened_file[firstatom:]:
 		# If you reach the end of a PDB file via an END statement
 		if line.strip() == "END":
-			print("Parsing complete.")
 			return new_molecule
 		# Split the line into its various data
 		this_line = line.split()
@@ -57,8 +56,6 @@ def parsePDB(filename):
 		z         = float(this_line[7])
 		particle = atom.Atom(index, atomtype, x, y, z)
 		new_molecule.addAtom(particle)
-		print("NEW ATOM ADDED IN THE PARSER.")
-	print("Parsing complete.")
 	return new_molecule
 
 def parseGRO(filename):

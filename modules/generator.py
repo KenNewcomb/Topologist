@@ -31,11 +31,11 @@ def GROMACSNonbonded(atomtypes):
 
 def GROMACSBonds(bonds):
 	global output_file
-	print("PROCESSINGBONDS")
 	output_file.append("[ bonds ]")
 	output_file.append(";\ti\tj\tfunc\tlength\t\tforce.c")
 	for bond in bonds:
 		output_file.append("\t{0}\t{1}\t{2}\t{3}\t\t{4}".format(bond.atom1.index, bond.atom2.index, 1, ceil(bond.distance*10000)/10000, "No force constant given."))
+	output_file.append("")
 	
 def GROMACSAngles(angles):
 	global output_file
@@ -59,4 +59,5 @@ def writeTopology():
 	for line in output_file:
 		topology.write(line + "\n")
 
+	print("Topology generated.\n")
 	topology.close()
