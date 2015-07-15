@@ -40,3 +40,8 @@ Features to be implemented:
 * LAMMPS support
 * Automatic bond, angle detection
 * The ability to specify non-bonded parameters and system information so a "complete" topology can be generated without further user input.
+
+Acknowledgements
+----------------
+
+Special thanks to <a href="https://github.com/mike5603" target="_blank">Michael Humbert</a> for his keen debugging eyes.
