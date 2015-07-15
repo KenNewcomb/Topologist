@@ -52,15 +52,23 @@ def GROMACSAngles(angles, settings):
 		output_file.append("\t{0}\t{1}\t{2}\t{3}\t{4}\t{5}".format(angle.atom1.index, angle.atom2.index, angle.atom3.index, 1, settings.getAngle(angle.atom1, angle.atom2, angle.atom3), settings.getAngleConstant(angle.atom1, angle.atom2, angle.atom3)))
 	output_file.append("")
 
-def GROMACSSystem():
+def GROMACSSystem(settings):
 	global output_file
-	pass
+	output_file.append("[ system ]")
+	output_file.append(settings.getSystem())
+	output_file.append("")
 
-def GROMACSMolecules(molecule):
+def GROMACSMoleculetype(molecule):
 	global output_file
 	output_file.append("[ moleculetype ]")
 	output_file.append(";\tmolname\tnrexcl")
 	output_file.append("\t{0}".format(molecule.getResidue()))
+	output_file.append("")
+
+def GROMACSMolecules(topology):
+	output_file.append("[ molecules ]")
+	for molecule in topology.getMolecules():
+		output_file.append(molecule.getResidue())
 	output_file.append("")
 
 def writeTopology():

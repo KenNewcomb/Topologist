@@ -31,6 +31,9 @@ def parseSettings(settings_file):
 		elif this_line[0] == 'output':
 			output = this_line[1]
 			setting_object.addOutput(output)
+		elif this_line[0] == 'system':
+			system = "".join(this_line[1:])
+			setting_object.addSystem(system)
 		elif this_line[0] == '#':
 			pass
 	return setting_object

@@ -17,6 +17,8 @@ class Settings:
 	angle = 0.0
 	angle_constant = 0.0
 	angles = []
+	
+	system = ""
 
 	def addInput(self, filename):
 		self.input_files.append(filename)
@@ -30,6 +32,12 @@ class Settings:
 	def addOutput(self, output):
 		self.output = output
 	
+	def addSystem(self, system):
+		self.system = system
+	
+	def getSystem(self):
+		return self.system
+
 	def getInputFiles(self):
 		return self.input_files
 
