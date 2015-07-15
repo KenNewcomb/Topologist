@@ -1,5 +1,4 @@
 # Generator.py: Generates the [bonds] and [angles] section of a GROMACS topology file.
-from math import ceil
 output_file = []
 
 def GROMACSDefaults():
@@ -29,12 +28,12 @@ def GROMACSNonbonded(atomtypes):
 				output_file.append("\t{0}\t{1}".format(atomtypes[atomtype1], atomtypes[atomtype2]))
 	output_file.append("")
 
-def GROMACSBonds(bonds):
+def GROMACSBonds(bonds, settings):
 	global output_file
 	output_file.append("[ bonds ]")
 	output_file.append(";\ti\tj\tfunc\tlength\t\tforce.c")
 	for bond in bonds:
-		output_file.append("\t{0}\t{1}\t{2}\t{3}\t\t{4}".format(bond.atom1.index, bond.atom2.index, 1, ceil(bond.distance*10000)/10000, "No force constant given."))
+		output_file.append("\t{0}\t{1}\t{2}\t{3}\t\t{4}".format(bond.atom1.index, bond.atom2.index, 1, settings.getBondLength(bond.atom1, bond.atom2), settings.getForceConstant(bond.atom1, bond.atom2)))
 	output_file.append("")
 	
 def GROMACSAngles(angles):

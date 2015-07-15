@@ -1,5 +1,6 @@
 input U20orig.pdb
 
-bond U PT 1.6-1.85
+# bond atom1 atom2 distance_to_search bond_length force_constant
+bond U PT 1.6-1.85 1.70143 42.2
 
 output top

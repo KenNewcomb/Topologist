@@ -9,7 +9,6 @@ def parseSettings(settings_file):
 	# Read the file line by line
 	for line in settings_file:
 		this_line = line.split()
-		# If the line is blank
 		if this_line == []:
 			pass
 		elif this_line[0] == 'input':
@@ -19,10 +18,14 @@ def parseSettings(settings_file):
 			atom1 = this_line[1]
 			atom2 = this_line[2]
 			distance = this_line[3]
-			setting_object.addBond(atom1, atom2, distance)
+			bond_length = this_line[4]
+			force_constant = this_line[5]
+			setting_object.addBond(atom1, atom2, distance, bond_length, force_constant)
 		elif this_line[0] == 'output':
 			output = this_line[1]
 			setting_object.addOutput(output)
+		elif this_line[0] == '#':
+			pass
 	return setting_object
 
 def parsePDB(filename):
