@@ -71,7 +71,7 @@ def findAngles(topology, settings):
 		for atom in molecule.getAtoms():
 			for neighbor1 in atom.getNeighborList():
 				for neighbor2 in neighbor1.getNeighborList():
-					if atom.getAtomName() != neighbor2.getAtomName():
+					if atom.getIndex() != neighbor2.getIndex():
 						search_angle = settings.getAngle(atom, neighbor1, neighbor2)
 						possible_angle = angle.Angle(atom, neighbor1, neighbor2, search_angle)
 						if atom.getIndex() < neighbor2.getIndex():

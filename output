@@ -4,78 +4,206 @@
 
 [ atomtypes ]
 ;	name	atomic_num	mass	charge	ptype	sigma	epsil
-	C
-	O
-	HC
-	HO
-	OW
-	HW
+	U
+	Pt
+	P
 
 [ nonbond_params ]
 ;	i	j	func	sigma	eps(c12)kJ/mol
-	C	O
-	C	HC
-	C	HO
-	C	OW
-	C	HW
-	O	HC
-	O	HO
-	O	OW
-	O	HW
-	HC	HO
-	HC	OW
-	HC	HW
-	HO	OW
-	HO	HW
-	OW	HW
+	U	Pt
+	U	P
+	Pt	P
 
 [ moleculetype ]
 ;	molname	nrexcl
-	MET
+	LIG
 
 [ atoms ]
 	id	type	resnr	residue		atom	cgnr	charge	mass
-	1	C	1	MET		C1	1
-	2	O	1	MET		O1	1
-	3	HC	1	MET		H1	1
-	4	HC	1	MET		H2	1
-	5	HC	1	MET		H3	1
-	6	HO	1	MET		H4	1
+	1	U	1	LIG		U	1
+	2	U	1	LIG		U	1
+	3	U	1	LIG		U	1
+	4	U	1	LIG		U	1
+	5	U	1	LIG		U	1
+	6	U	1	LIG		U	1
+	7	U	1	LIG		U	1
+	8	U	1	LIG		U	1
+	9	U	1	LIG		U	1
+	10	U	1	LIG		U	1
+	11	U	1	LIG		U	1
+	12	U	1	LIG		U	1
+	13	U	1	LIG		U	1
+	14	U	1	LIG		U	1
+	15	U	1	LIG		U	1
+	16	U	1	LIG		U	1
+	17	U	1	LIG		U	1
+	18	U	1	LIG		U	1
+	19	U	1	LIG		U	1
+	20	U	1	LIG		U	1
+	21	Pt	1	LIG		PT	1
+	22	Pt	1	LIG		PT	1
+	23	Pt	1	LIG		PT	1
+	24	Pt	1	LIG		PT	1
+	25	Pt	1	LIG		PT	1
+	26	Pt	1	LIG		PT	1
+	27	Pt	1	LIG		PT	1
+	28	Pt	1	LIG		PT	1
+	29	Pt	1	LIG		PT	1
+	30	Pt	1	LIG		PT	1
+	31	Pt	1	LIG		PT	1
+	32	Pt	1	LIG		PT	1
+	33	Pt	1	LIG		PT	1
+	34	Pt	1	LIG		PT	1
+	35	Pt	1	LIG		PT	1
+	36	Pt	1	LIG		PT	1
+	37	Pt	1	LIG		PT	1
+	38	Pt	1	LIG		PT	1
+	39	Pt	1	LIG		PT	1
+	40	Pt	1	LIG		PT	1
+	41	Pt	1	LIG		PT	1
+	42	Pt	1	LIG		PT	1
+	43	Pt	1	LIG		PT	1
+	44	Pt	1	LIG		PT	1
+	45	Pt	1	LIG		PT	1
+	46	Pt	1	LIG		PT	1
+	47	Pt	1	LIG		PT	1
+	48	Pt	1	LIG		PT	1
+	49	Pt	1	LIG		PT	1
+	50	Pt	1	LIG		PT	1
+	51	Pt	1	LIG		PT	1
+	52	Pt	1	LIG		PT	1
+	53	Pt	1	LIG		PT	1
+	54	Pt	1	LIG		PT	1
+	55	Pt	1	LIG		PT	1
+	56	Pt	1	LIG		PT	1
+	57	Pt	1	LIG		PT	1
+	58	Pt	1	LIG		PT	1
+	59	Pt	1	LIG		PT	1
+	60	Pt	1	LIG		PT	1
+	61	P	1	LIG		P	1
+	62	P	1	LIG		P	1
+	63	P	1	LIG		P	1
+	64	P	1	LIG		P	1
+	65	P	1	LIG		P	1
+	66	P	1	LIG		P	1
+	67	P	1	LIG		P	1
+	68	P	1	LIG		P	1
+	69	P	1	LIG		P	1
+	70	P	1	LIG		P	1
+	71	P	1	LIG		P	1
+	72	P	1	LIG		P	1
+	73	P	1	LIG		P	1
+	74	P	1	LIG		P	1
+	75	P	1	LIG		P	1
+	76	P	1	LIG		P	1
+	77	P	1	LIG		P	1
+	78	P	1	LIG		P	1
+	79	P	1	LIG		P	1
+	80	P	1	LIG		P	1
+	81	P	1	LIG		P	1
+	82	P	1	LIG		P	1
+	83	P	1	LIG		P	1
+	84	P	1	LIG		P	1
+	85	P	1	LIG		P	1
+	86	P	1	LIG		P	1
+	87	P	1	LIG		P	1
+	88	P	1	LIG		P	1
+	89	P	1	LIG		P	1
+	90	P	1	LIG		P	1
+	91	P	1	LIG		P	1
+	92	P	1	LIG		P	1
+	93	P	1	LIG		P	1
+	94	P	1	LIG		P	1
+	95	P	1	LIG		P	1
+	96	P	1	LIG		P	1
+	97	P	1	LIG		P	1
+	98	P	1	LIG		P	1
+	99	P	1	LIG		P	1
+	100	P	1	LIG		P	1
+	101	P	1	LIG		P	1
+	102	P	1	LIG		P	1
+	103	P	1	LIG		P	1
+	104	P	1	LIG		P	1
+	105	P	1	LIG		P	1
+	106	P	1	LIG		P	1
+	107	P	1	LIG		P	1
+	108	P	1	LIG		P	1
+	109	P	1	LIG		P	1
+	110	P	1	LIG		P	1
+	111	P	1	LIG		P	1
+	112	P	1	LIG		P	1
+	113	P	1	LIG		P	1
+	114	P	1	LIG		P	1
+	115	P	1	LIG		P	1
+	116	P	1	LIG		P	1
+	117	P	1	LIG		P	1
+	118	P	1	LIG		P	1
+	119	P	1	LIG		P	1
+	120	P	1	LIG		P	1
 
 [ bonds ]
 ;	i	j	func	length		force.c
-	1	3	1	1.10243		4.14
-	1	4	1	1.10243		4.14
-	1	5	1	1.10243		4.14
-	1	2	1	1.43192		2.42
-	2	6	1	0.95123		1.01
+	1	29	1	1.70243		4.14
+	1	37	1	1.70243		4.14
+	2	32	1	1.70243		4.14
+	2	39	1	1.70243		4.14
+	3	34	1	1.70243		4.14
+	3	36	1	1.70243		4.14
+	4	28	1	1.70243		4.14
+	4	38	1	1.70243		4.14
+	5	27	1	1.70243		4.14
+	5	30	1	1.70243		4.14
+	6	24	1	1.70243		4.14
+	6	40	1	1.70243		4.14
+	7	21	1	1.70243		4.14
+	7	25	1	1.70243		4.14
+	8	26	1	1.70243		4.14
+	8	31	1	1.70243		4.14
+	9	33	1	1.70243		4.14
+	9	35	1	1.70243		4.14
+	10	22	1	1.70243		4.14
+	10	23	1	1.70243		4.14
+	11	49	1	1.70243		4.14
+	11	57	1	1.70243		4.14
+	12	52	1	1.70243		4.14
+	12	59	1	1.70243		4.14
+	13	54	1	1.70243		4.14
+	13	56	1	1.70243		4.14
+	14	48	1	1.70243		4.14
+	14	58	1	1.70243		4.14
+	15	47	1	1.70243		4.14
+	15	50	1	1.70243		4.14
+	16	44	1	1.70243		4.14
+	16	60	1	1.70243		4.14
+	17	41	1	1.70243		4.14
+	17	45	1	1.70243		4.14
+	18	46	1	1.70243		4.14
+	18	51	1	1.70243		4.14
+	19	53	1	1.70243		4.14
+	19	55	1	1.70243		4.14
+	20	42	1	1.70243		4.14
+	20	43	1	1.70243		4.14
 
 [ angles ]
 ;	i	j	k	func	angle	force.c
-	1	2	6	1	None	None
-	2	1	3	1	None	None
-	2	1	4	1	None	None
-	2	1	5	1	None	None
-	3	1	4	1	96	1000.0
-	3	1	5	1	96	1000.0
-	4	1	5	1	96	1000.0
-
-[ moleculetype ]
-;	molname	nrexcl
-	HOH
-
-[ atoms ]
-	id	type	resnr	residue		atom	cgnr	charge	mass
-	1	OW	1	HOH		OW	1
-	2	HW	1	HOH		H1	1
-	3	HW	1	HOH		H2	1
-
-[ bonds ]
-;	i	j	func	length		force.c
-	1	2	1	0.95000		2.1
-	1	3	1	0.95000		2.1
-
-[ angles ]
-;	i	j	k	func	angle	force.c
-	2	1	3	1	None	None
+	21	7	25	1	None	None
+	22	10	23	1	None	None
+	24	6	40	1	None	None
+	26	8	31	1	None	None
+	27	5	30	1	None	None
+	28	4	38	1	None	None
+	29	1	37	1	None	None
+	32	2	39	1	None	None
+	33	9	35	1	None	None
+	34	3	36	1	None	None
+	41	17	45	1	None	None
+	42	20	43	1	None	None
+	44	16	60	1	None	None
+	46	18	51	1	None	None
+	47	15	50	1	None	None
+	48	14	58	1	None	None
+	49	11	57	1	None	None
+	52	12	59	1	None	None
+	53	19	55	1	None	None
+	54	13	56	1	None	None
 
