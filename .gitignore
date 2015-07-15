@@ -2,3 +2,5 @@
 *.pyo
 *.swp
 *.swo
+U*.pdb
+u*.pdb
