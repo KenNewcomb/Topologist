@@ -49,13 +49,13 @@ class Settings:
 				return bond[4]
 	def getAngle(self, atom1, atom2, atom3):
 		for angle in self.angles:
-			if angle[0] == atom1.getAtomType() and angle[1] == atom2.getAtomType() and angle[2] == atom2.getAtomType():
+			if angle[0] == atom1.getAtomType() and angle[1] == atom2.getAtomType() and angle[2] == atom3.getAtomType():
 				return angle[3]
 
 	def getAngleConstant(self, atom1, atom2, atom3):
 		for angle in self.angles:
-			if angle[0] == atom1.getAtomType() and angle[1] == atom2.getAtomType() and angle[2] == atom2.getAtomType():
-				return angle[3]
+			if angle[0] == atom1.getAtomType() and angle[1] == atom2.getAtomType() and angle[2] == atom3.getAtomType():
+				return angle[4]
 	def getInputType(self, filenumber):
 		return self.input_files[filenumber].split('.')[1]
 

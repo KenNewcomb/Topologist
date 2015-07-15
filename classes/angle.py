@@ -1,4 +1,4 @@
-# angle.py: A class describing a bond between two atoms.
+# angle.py: A class describing an angle between three atoms.
 
 class Angle:
 	atom1 = ""

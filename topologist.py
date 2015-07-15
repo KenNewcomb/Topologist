@@ -29,6 +29,7 @@ except FileNotFoundError:
 input_files = settings.getInputFiles()
 topology = top.Topology()
 
+print(settings.getAngles())
 # Loop over molecules to process
 for input_file in range(0, len(input_files)):
 	input_extension = settings.getInputType(input_file)
