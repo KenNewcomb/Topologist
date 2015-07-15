@@ -8,8 +8,8 @@ class Molecule():
 	connectivities = []
 	angles = []
 	
-	def __init__(self, residue):
-		self.residue = residue
+	def __init__(self):
+		self.residue = ""
 		self.atoms = []
 		self.bonds = []
 		self.connectivities = []

@@ -9,7 +9,7 @@ def GROMACSDefaults():
 	output_file.append("\t{0}\t{1}\t{2}\t{3}\t{4}".format(1,2,'no',1,1))
 	output_file.append("")
 
-def GROMACSAtoms(atomtypes):
+def GROMACSAtomtypes(atomtypes):
 	global output_file
 	output_file.append("[ atomtypes ]")
 	output_file.append(";\tname\tatomic_num\tmass\tcharge\tptype\tsigma\tepsil")
@@ -17,6 +17,14 @@ def GROMACSAtoms(atomtypes):
 		output_file.append("\t{0}".format(atomtype))
 	output_file.append("")
 	pass
+
+def GROMACSAtoms(molecule):
+	global output_file
+	output_file.append("[ atoms ]")
+	output_file.append("\tid\ttype\tresnr\tresidue\t\tatom\tcgnr\tcharge\tmass")
+	for atom in molecule.getAtoms():
+		output_file.append("\t{0}\t{1}\t{2}\t{3}\t\t{4}\t{5}".format(atom.getIndex(), atom.getAtomType(), 1, molecule.getResidue(), atom.getAtomName(),1))
+	output_file.append("")
 
 def GROMACSNonbonded(atomtypes):
 	global output_file

@@ -32,7 +32,7 @@ def parsePDB(filename):
 	"""Parses a .pdb file."""
 	# Create a new molecule object.
 	new_molecule = []
-	new_molecule = molecule.Molecule(filename)
+	new_molecule = molecule.Molecule()
 
 	# Read the file into memory.
 	opened_file = open(filename, 'r').readlines()
@@ -43,7 +43,6 @@ def parsePDB(filename):
 		if opened_file[line].split()[0] == 'HETATM' or opened_file[line].split()[0] == 'ATOM':
 			firstatom = line
 			break
-
 	# Extract the coordinates
 	for line in opened_file[firstatom:]:
 		# If you reach the end of a PDB file via an END statement
@@ -53,11 +52,17 @@ def parsePDB(filename):
 		this_line = line.split()
 		# Set the index, x, y, and z for atom; set the residue type for the molecule
 		index     = opened_file[firstatom:].index(line)+1
-		atomtype  = this_line[2]
+		atomname  = this_line[2]
+		new_molecule.setResidue(this_line[3])
 		x         = float(this_line[5])
 		y         = float(this_line[6])
 		z         = float(this_line[7])
-		particle = atom.Atom(index, atomtype, x, y, z)
+		# If charges are given,
+		if len(this_line) == 11:
+			atomtype = this_line[10]
+		elif len(this_line) == 9:
+			atomtype = this_line[8]
+		particle = atom.Atom(index, atomname, atomtype, x, y, z)
 		new_molecule.addAtom(particle)
 	return new_molecule
 

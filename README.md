@@ -36,6 +36,7 @@ Topologist is still in its early stages of development and is not yet ready for 
 
 Features to be implemented:
 * Angles, dihedrals, and impropers
+* Parsing charges from .PDB
 * LAMMPS support
 * Automatic bond, angle detection
 * The ability to specify non-bonded parameters and system information so a "complete" topology can be generated without further user input.

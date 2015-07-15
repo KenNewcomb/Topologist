@@ -47,14 +47,14 @@ for input_file in range(0, len(input_files)):
 # Process topology
 topology = processor.findAtomicDistances(topology)
 topology = processor.findBonds(topology, settings)
-
 # Call appropriate output generator
 if output_extension == 'top':
 	generator.GROMACSDefaults()
-	generator.GROMACSAtoms(topology.getAtomTypes())
+	generator.GROMACSAtomtypes(topology.getAtomTypes())
 	generator.GROMACSNonbonded(topology.getAtomTypes())
 	for molecule in topology.getMolecules():
 		generator.GROMACSMolecules(molecule)
+		generator.GROMACSAtoms(molecule)
 		generator.GROMACSBonds(molecule.getBonds(), settings)
 		generator.GROMACSAngles(molecule.getAngles())
 	generator.writeTopology()

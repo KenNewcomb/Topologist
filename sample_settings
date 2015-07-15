@@ -3,7 +3,8 @@ input methanol.pdb water.pdb
 bond C H 1.1 1.10243 4.14
 bond O 1.3-1.5 1.43192 2.42
 bond H 0.9 0.95123 1.01
+
 bond OW H1 0.9-1.0 0.95000 2.1
 bond OW H2 0.9-1.0 0.95000 2.1
 
-output GROMACS
+output top
