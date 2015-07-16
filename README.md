@@ -20,7 +20,11 @@ Topologist will look for a file named "settings" in the program directory. A sam
 	input water.pdb
 
 	system Water
-	bond  OW HW 0.9-1.0 0.96
+	#     sym Number Mass     Charge LJ-Sigma LJ-Epsilon
+	atom  OW  8      15.999  -0.84  3.166    0.650
+	atom  HW  1      1.000    0.42  0.000    0.000
+	
+	bond  OW HW 0.9-1.0 0.96 1.4
 	angle HW OW HW 109.5 10.4
 
 	output top
@@ -31,11 +35,17 @@ There are several keywords that Topologist accepts:
 
 2. **system**: Provide a name for the system.
 
-3. **bond**: This keyword is followed by two bonded atom types, the bond length between them, and the force constant. You can either specify a bond length range (0.8-1.0) to search or a single value (1.5), in which case, topologist will search for any bond within 0.1 angstroms. 
+3. **atom**: Define each atom in the system, followed by the atomic symbol, atomic number, mass, charge, and the two Lennard-Jones parameters for the system (sigma and epsilon, respectively).
 
-4. **angle**: This keyword is followed by the three groups that particpate in a bend, the equilibrium angle, and the bending force constant.
+4. **mix**: If this keyword is present in the settings file, <a href="http://www.sklogwiki.org/SklogWiki/index.php/Combining_rules#Lorentz-Berthelot_rules" target="_blank">Lorentz-Berthelot</a> mixing rules will be applied for all cross interactions.
 
-5. **output**: This keyword specifies the type of topology to be output by the program. At present, Topologist only supports writing GROMACS (.top) files.
+4. **bond**: This keyword is followed by two bonded atom types, the bond length between them, and the force constant. You can either specify a bond length range (0.8-1.0) to search or a single value (1.5), in which case, topologist will search for any bond within 0.1 angstroms. 
+
+5. **angle**: This keyword is followed by the three groups that particpate in a bend, the equilibrium angle, and the bending force constant.
+
+6. **output**: This keyword specifies the type of topology to be output by the program. At present, Topologist only supports writing GROMACS (.top) files.
+
+You may add comments by starting a line with a single "#" character.
 
 Development
 -----------

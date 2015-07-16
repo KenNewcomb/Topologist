@@ -18,6 +18,8 @@ class Settings:
 	angle_constant = 0.0
 	angles = []
 	
+	atoms = []
+
 	system = ""
 
 	def addInput(self, filename):
@@ -34,6 +36,10 @@ class Settings:
 	
 	def addSystem(self, system):
 		self.system = system
+	
+	def addAtom(self, symbol, number, mass, charge, sigma, epsilon):
+		atom = [symbol, number, mass, charge, sigma, epsilon]
+		self.atoms.append(atom)
 	
 	def getSystem(self):
 		return self.system
@@ -69,3 +75,8 @@ class Settings:
 
 	def getOutputType(self):
 		return self.output
+
+	def getAtomInfo(self, atomtype):
+		for atom in self.atoms:
+			if atom[0] == atomtype:
+				return atom

@@ -9,12 +9,13 @@ def GROMACSDefaults():
 	output_file.append("\t{0}\t{1}\t{2}\t{3}\t{4}".format(1,2,'no',1,1))
 	output_file.append("")
 
-def GROMACSAtomtypes(atomtypes):
+def GROMACSAtomtypes(atomtypes, settings):
 	global output_file
 	output_file.append("[ atomtypes ]")
-	output_file.append(";\tname\tatomic_num\tmass\tcharge\tptype\tsigma\tepsil")
+	output_file.append(";\tname\tAt.Num.\tmass\tcharge\tptype\tsigma\tepsil")
 	for atomtype in atomtypes:
-		output_file.append("\t{0}".format(atomtype))
+		atom_info = settings.getAtomInfo(atomtype)
+		output_file.append("\t{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}".format(atomtype, atom_info[1], atom_info[2], atom_info[3], 1, atom_info[4], atom_info[5]))
 	output_file.append("")
 	pass
 

@@ -1,0 +1,31 @@
+input U20orig.pdb water.pdb sodium.pdb
+
+system U20 System with water
+
+#    Sym Number Mass       Charge LJ-Sigma LJ-Epsilon
+atom U   92     238.030     1.01  lj1      lj2
+atom Ou  8      15.9994    -1.2   lj1      lj2
+atom Op  8      15.9994    -1.2   lj1      lj2
+atom OW  8      15.9994    -0.84  lj1      lj2
+atom HW  1      1.0001      0.42  lj1      lj2
+atom Na  11     22.989      1.00  0.24     lj2
+
+# U20
+bond U Ou 1.7-1.85 1.70192 0.5
+bond U Op 1.0-2.5 1.80192 0.6
+bond Op Op 1.0-2.5 1.90192 0.7
+angle Ou U Ou 180.0 0.8
+angle Ou U Op 170.0 0.9
+angle U Op Op 160.0 1.0
+angle U Op U  150.0 1.1
+angle Op U Op 140.0 1.2
+angle Op U Ou 130.0 1.3
+
+# Water 
+bond OW HW 0.9-1.1 1.0 1.4
+angle HW OW HW 109.4 1.5
+
+# Sodium
+# No bonds, no angles
+
+output top

@@ -14,6 +14,14 @@ def parseSettings(settings_file):
 		elif this_line[0] == 'input':
 			for filename in this_line[1:]:
 				setting_object.addInput(filename)
+		elif this_line[0] == 'atom':
+			symbol = this_line[1]
+			number = this_line[2]
+			mass   = this_line[3]
+			charge = this_line[4]
+			sigma  = this_line[5]
+			eps    = this_line[6]
+			setting_object.addAtom(symbol, number, mass, charge, sigma, eps)
 		elif this_line[0] == 'bond':
 			atom1 = this_line[1]
 			atom2 = this_line[2]
@@ -57,6 +65,7 @@ def parsePDB(filename):
 		if opened_file[line].split()[0] == 'HETATM' or opened_file[line].split()[0] == 'ATOM':
 			firstatom = line
 			break
+	
 	# Extract the coordinates
 	for line in opened_file[firstatom:]:
 		# If you reach the end of a PDB file via an END statement
