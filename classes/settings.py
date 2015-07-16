@@ -10,16 +10,14 @@ class Settings:
 	bond_length = 0.0
 	force_constant = 0.0
 	output = ""
-	
 	angleatom1 = ""
 	angleatom2 = ""
 	angleatom3 = ""
 	angle = 0.0
 	angle_constant = 0.0
 	angles = []
-	
 	atoms = []
-
+	mix = False
 	system = ""
 
 	def addInput(self, filename):
@@ -76,7 +74,19 @@ class Settings:
 	def getOutputType(self):
 		return self.output
 
+	def getSigma(self, atomtype):
+		for atom in self.atoms:
+			if atom[0] == atomtype:
+				return float(atom[4])
+	def getEpsilon(self, atomtype):
+		for atom in self.atoms:
+			if atom[0] == atomtype:
+				return float(atom[5])
+
 	def getAtomInfo(self, atomtype):
 		for atom in self.atoms:
 			if atom[0] == atomtype:
 				return atom
+	
+	def mix(self):
+		self.mix = True

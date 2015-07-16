@@ -52,7 +52,7 @@ topology = processor.findAngles(topology, settings)
 if output_extension == 'top':
 	generator.GROMACSDefaults()
 	generator.GROMACSAtomtypes(topology.getAtomTypes(), settings)
-	generator.GROMACSNonbonded(topology.getAtomTypes())
+	generator.GROMACSNonbonded(topology.getAtomTypes(), settings)
 	for molecule in topology.getMolecules():
 		generator.GROMACSMoleculetype(molecule)
 		generator.GROMACSAtoms(molecule)

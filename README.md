@@ -54,10 +54,8 @@ Topologist is still in its early stages of development and is not quite ready fo
 
 Features to be implemented:
 * Dihedrals and impropers
-* Parsing atomic charges
 * LAMMPS support
 * Automatic bond, angle detection
-* The ability to specify non-bonded parameters and system information so a "complete" topology can be generated without further user input.
 
 Pull requests welcome!
 

@@ -5,6 +5,8 @@ system Water
 atom  OW  8      15.999  -0.84  3.166    0.650
 atom  HW  1      1.000    0.42  0.000    0.000
 
+mix 
+
 bond  OW HW 0.9-1.0 0.96 1.4
 angle HW OW HW 109.5 10.4
 

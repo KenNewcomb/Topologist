@@ -22,6 +22,8 @@ def parseSettings(settings_file):
 			sigma  = this_line[5]
 			eps    = this_line[6]
 			setting_object.addAtom(symbol, number, mass, charge, sigma, eps)
+		elif this_line[0] == 'mix':
+			setting_object.mix()
 		elif this_line[0] == 'bond':
 			atom1 = this_line[1]
 			atom2 = this_line[2]

@@ -27,14 +27,19 @@ def GROMACSAtoms(molecule):
 		output_file.append("\t{0}\t{1}\t{2}\t{3}\t\t{4}\t{5}".format(atom.getIndex(), atom.getAtomType(), 1, molecule.getResidue(), atom.getAtomName(),1))
 	output_file.append("")
 
-def GROMACSNonbonded(atomtypes):
+def GROMACSNonbonded(atomtypes, settings):
 	global output_file
 	output_file.append("[ nonbond_params ]")
 	output_file.append(";\ti\tj\tfunc\tsigma\teps(c12)kJ/mol")
 	for atomtype1 in range(0, len(atomtypes)-1):
 		for atomtype2 in range(atomtype1, len(atomtypes)):
 			if atomtype1 != atomtype2:
-				output_file.append("\t{0}\t{1}".format(atomtypes[atomtype1], atomtypes[atomtype2]))
+				if settings.mix == True:
+					sigma = (settings.getSigma(atomtypes[atomtype1])+settings.getSigma(atomtypes[atomtype2]))/2
+					epsilon = (settings.getEpsilon(atomtypes[atomtype1])*settings.getEpsilon(atomtypes[atomtype2]))**(1/2)
+					output_file.append("\t{0}\t{1}\t{2}\t{3}\t{4}".format(atomtypes[atomtype1], atomtypes[atomtype2], 1, sigma, epsilon ))
+				else:
+					output_file.append("\t{0}\t{1}".format(atomtypes[atomtype1], atomtypes[atomtype2]))
 	output_file.append("")
 
 def GROMACSBonds(bonds, settings):
