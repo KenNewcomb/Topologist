@@ -1,6 +1,0 @@
-input water.pdb
-
-bond OW H1 0.9-1.0 0.95000 2.1
-bond OW H2 0.9-1.0 0.95000 2.1
-
-output top
