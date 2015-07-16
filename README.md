@@ -17,17 +17,20 @@ Usage
 
 Topologist will look for a file named "settings" in the program directory. The input file contains the filename of the molecular coordinate file and bonding information. A sample settings file is given below:
 
-	input methanol.pdb
+	input water.pdb
 
-	bond C H 1.1
-	bond C O 1.3-1.5
-	bond O H 0.9
+	system Water
+	bond  OW HW 0.9-1.0 0.96
+	angle HW OW HW 109.5
 
 	output GROMACS
 
-There are several keywords that Topologist accepts. The **input** keyword specifies the coordinate files to process, separated by a space. Each coordinate file should define a **molecule**, not an atom. The **bond** keyword is followed by the two groups to search for, and the bond length (in Angstroms). If a range is given, Topologist will search within that range; if not, it assumes a 0.1 Angstrom tolerance. Finally, the **output** keyword specifies the type of topology desired. In the simple example given above, a methanol data file is read, analyzed for the existence of three bonds (C-H, C-O, and O-H), and a GROMACS topology file is generated.
-
-Note: Each coordinate file should represent one and only one molecule.
+There are several keywords that Topologist accepts:
+1. **input**: This keyword specifies the path(s) of the coordinate file(s), separated by a space. Each coordinate file should define a single **molecule**, not an atom. 
+2. **system**: Provide a name for the system.
+3. **bond**: This keyword is followed by two bonded atom types, and the bond length between them. You can either specify a range (0.8-1.0) or a single value (1.5), in which case, topologist will search for bonds within 0.1 angstroms. 
+4. **angle**: This keyword is followed by the three groups that particpate in a bend, and the equilibrium angle.
+5. **output**: This keyword specifies the type of topology to be output by the program. At present, Topologist only supports writing GROMACS (.top) files.
 
 Development
 -----------
