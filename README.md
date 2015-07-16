@@ -21,7 +21,7 @@ Topologist will look for a file named "settings" in the program directory. A sam
 
 	system Water
 	bond  OW HW 0.9-1.0 0.96
-	angle HW OW HW 109.5
+	angle HW OW HW 109.5 10.4
 
 	output GROMACS
 
@@ -31,9 +31,9 @@ There are several keywords that Topologist accepts:
 
 2. **system**: Provide a name for the system.
 
-3. **bond**: This keyword is followed by two bonded atom types, and the bond length between them. You can either specify a range (0.8-1.0) or a single value (1.5), in which case, topologist will search for bonds within 0.1 angstroms. 
+3. **bond**: This keyword is followed by two bonded atom types, the bond length between them, and the force constant. You can either specify a bond length range (0.8-1.0) to search or a single value (1.5), in which case, topologist will search for any bond within 0.1 angstroms. 
 
-4. **angle**: This keyword is followed by the three groups that particpate in a bend, and the equilibrium angle.
+4. **angle**: This keyword is followed by the three groups that particpate in a bend, the equilibrium angle, and the bending force constant.
 
 5. **output**: This keyword specifies the type of topology to be output by the program. At present, Topologist only supports writing GROMACS (.top) files.
 

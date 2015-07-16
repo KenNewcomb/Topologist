@@ -2,6 +2,6 @@ input water.pdb
 
 system Water
 bond OW HW 0.9-1.1 0.96 0.5
-angle HW OW HW 109.5 1.2
+angle HW OW HW 109.5 10.4
 
 output top
