@@ -40,14 +40,16 @@ There are several keywords that Topologist accepts:
 Development
 -----------
 
-Topologist is still in its early stages of development and is not yet ready for public use. Use at your own risk! The topologies generated at this point may contain errors. Always perform a sanity check on the generated topology. 
+Topologist is still in its early stages of development and is not quite ready for general use. Use at your own risk! The topologies generated at this point may contain errors. Always perform a sanity check on the generated file. 
 
 Features to be implemented:
 * Angles, dihedrals, and impropers
-* Parsing charges from .PDB
+* Parsing atomic charges
 * LAMMPS support
 * Automatic bond, angle detection
 * The ability to specify non-bonded parameters and system information so a "complete" topology can be generated without further user input.
+
+Pull requests welcome!
 
 Acknowledgements
 ----------------
