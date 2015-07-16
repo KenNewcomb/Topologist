@@ -23,7 +23,7 @@ Topologist will look for a file named "settings" in the program directory. A sam
 	bond  OW HW 0.9-1.0 0.96
 	angle HW OW HW 109.5 10.4
 
-	output GROMACS
+	output top
 
 There are several keywords that Topologist accepts:
 
