@@ -26,10 +26,15 @@ Topologist will look for a file named "settings" in the program directory. A sam
 	output GROMACS
 
 There are several keywords that Topologist accepts:
+
 1. **input**: This keyword specifies the path(s) of the coordinate file(s), separated by a space. Each coordinate file should define a single **molecule**, not an atom. 
+
 2. **system**: Provide a name for the system.
+
 3. **bond**: This keyword is followed by two bonded atom types, and the bond length between them. You can either specify a range (0.8-1.0) or a single value (1.5), in which case, topologist will search for bonds within 0.1 angstroms. 
+
 4. **angle**: This keyword is followed by the three groups that particpate in a bend, and the equilibrium angle.
+
 5. **output**: This keyword specifies the type of topology to be output by the program. At present, Topologist only supports writing GROMACS (.top) files.
 
 Development
