@@ -15,7 +15,7 @@ Usage
 
 	python3 topologist.py
 
-Topologist will look for a file named "settings" in the program directory. The input file contains the filename of the molecular coordinate file and bonding information. A sample settings file is given below:
+Topologist will look for a file named "settings" in the program directory. A sample settings file is given below:
 
 	input water.pdb
 
