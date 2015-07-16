@@ -78,5 +78,5 @@ def writeTopology():
 	for line in output_file:
 		topology.write(line + "\n")
 
-	print("Topology generated.\n")
+	print("Topology successfully written to ./output .\n")
 	topology.close()
