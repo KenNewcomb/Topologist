@@ -43,7 +43,7 @@ Development
 Topologist is still in its early stages of development and is not quite ready for general use. Use at your own risk! The topologies generated at this point may contain errors. Always perform a sanity check on the generated file. 
 
 Features to be implemented:
-* Angles, dihedrals, and impropers
+* Dihedrals and impropers
 * Parsing atomic charges
 * LAMMPS support
 * Automatic bond, angle detection
