@@ -55,7 +55,7 @@ if output_extension == 'top':
 	generator.GROMACSNonbonded(topology.getAtomTypes(), settings)
 	for molecule in topology.getMolecules():
 		generator.GROMACSMoleculetype(molecule)
-		generator.GROMACSAtoms(molecule)
+		generator.GROMACSAtoms(molecule, settings)
 		generator.GROMACSBonds(molecule.getBonds(), settings)
 		generator.GROMACSAngles(molecule.getAngles(), settings)
 	generator.GROMACSSystem(settings)

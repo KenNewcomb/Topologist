@@ -1,13 +1,15 @@
 input water.pdb
 
 system Water
-#     sym Number Mass     Charge LJ-Sigma LJ-Epsilon
-atom  OW  8      15.999  -0.84  3.166    0.650
-atom  HW  1      1.000    0.42  0.000    0.000
 
-mix 
+#    Sym Number Mass       Charge LJ-Sigma LJ-Epsilon
+atom OW  8      15.9994    -0.84  3.166      0.650
+atom HW  1      1.0001      0.42  0.0        0.0
 
-bond  OW HW 0.9-1.0 0.96 1.4
-angle HW OW HW 109.5 10.4
+# Water 
+bond OW HW 0.9-1.1 1.0 1.4
+angle HW OW HW 109.4 1.5
 
+# Lorentz-Berthlot mixing rules.
+mix
 output top

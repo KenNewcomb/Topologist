@@ -18,6 +18,7 @@ class Atom:
 		self.y        = float(y)
 		self.z        = float(z)
 		self.neighborlist = []	
+
 	def getIndex(self):
 		return self.index
 
