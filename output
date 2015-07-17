@@ -41,12 +41,6 @@
 	id	type	resnr	residue		atom	cgnr	charge	mass
 	1	Na	1	Na		Na	1	1.00	22.989
 
-[ bonds ]
-;	i	j	func	length		force.c
-
-[ angles ]
-;	i	j	k	func	angle	force.c
-
 [ system ]
 WaterandSodium
 

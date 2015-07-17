@@ -44,6 +44,8 @@ def GROMACSNonbonded(atomtypes, settings):
 
 def GROMACSBonds(bonds, settings):
 	global output_file
+	if bonds == []:
+		return
 	output_file.append("[ bonds ]")
 	output_file.append(";\ti\tj\tfunc\tlength\t\tforce.c")
 	for bond in bonds:
@@ -52,6 +54,8 @@ def GROMACSBonds(bonds, settings):
 	
 def GROMACSAngles(angles, settings):
 	global output_file
+	if angles == []:
+		return
 	output_file.append("[ angles ]")
 	output_file.append(";\ti\tj\tk\tfunc\tangle\tforce.c")
 	for angle in angles:
