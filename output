@@ -16,7 +16,7 @@
 
 [ moleculetype ]
 ;	molname	nrexcl
-	HOH
+	HOH	2
 
 [ atoms ]
 	id	type	resnr	residue		atom	cgnr	charge	mass
@@ -35,7 +35,7 @@
 
 [ moleculetype ]
 ;	molname	nrexcl
-	Na
+	Na	1
 
 [ atoms ]
 	id	type	resnr	residue		atom	cgnr	charge	mass

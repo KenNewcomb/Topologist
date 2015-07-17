@@ -64,11 +64,11 @@ def GROMACSSystem(settings):
 	output_file.append(settings.getSystem())
 	output_file.append("")
 
-def GROMACSMoleculetype(molecule):
+def GROMACSMoleculetype(molecule, settings):
 	global output_file
 	output_file.append("[ moleculetype ]")
 	output_file.append(";\tmolname\tnrexcl")
-	output_file.append("\t{0}".format(molecule.getResidue()))
+	output_file.append("\t{0}\t{1}".format(molecule.getResidue(), settings.getMoleculeInfo(molecule.getResidue())[2]))
 	output_file.append("")
 
 def GROMACSMolecules(topology, settings):
