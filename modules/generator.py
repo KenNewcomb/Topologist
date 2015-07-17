@@ -71,10 +71,11 @@ def GROMACSMoleculetype(molecule):
 	output_file.append("\t{0}".format(molecule.getResidue()))
 	output_file.append("")
 
-def GROMACSMolecules(topology):
+def GROMACSMolecules(topology, settings):
 	output_file.append("[ molecules ]")
+	output_file.append(";\tresidue\tnmol")
 	for molecule in topology.getMolecules():
-		output_file.append(molecule.getResidue())
+		output_file.append("\t{0}\t{1}".format(molecule.getResidue(), settings.getMoleculeInfo(molecule.getResidue())[1]))
 	output_file.append("")
 
 def writeTopology():

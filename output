@@ -21,8 +21,8 @@
 [ atoms ]
 	id	type	resnr	residue		atom	cgnr	charge	mass
 	1	OW	1	HOH		OW	1	-0.84	15.9994
-	2	HW	1	HOH		HW1	1	0.42	1.0001
-	3	HW	1	HOH		HW2	1	0.42	1.0001
+	2	HW	1	HOH		H1	1	0.42	1.0001
+	3	HW	1	HOH		H2	1	0.42	1.0001
 
 [ bonds ]
 ;	i	j	func	length		force.c
@@ -51,6 +51,7 @@
 WaterandSodium
 
 [ molecules ]
-HOH
-Na
+;	residue	nmol
+	HOH	117
+	Na	1
 

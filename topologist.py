@@ -59,5 +59,5 @@ if output_extension == 'top':
 		generator.GROMACSBonds(molecule.getBonds(), settings)
 		generator.GROMACSAngles(molecule.getAngles(), settings)
 	generator.GROMACSSystem(settings)
-	generator.GROMACSMolecules(topology)
+	generator.GROMACSMolecules(topology, settings)
 	generator.writeTopology()

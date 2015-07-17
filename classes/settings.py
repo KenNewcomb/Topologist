@@ -19,6 +19,7 @@ class Settings:
 	atoms = []
 	mix = False
 	system = ""
+	molecules = [] 
 
 	def addInput(self, filename):
 		self.input_files.append(filename)
@@ -39,6 +40,13 @@ class Settings:
 		atom = [symbol, number, mass, charge, sigma, epsilon]
 		self.atoms.append(atom)
 	
+	def addMolecule(self, residue, nmol, nrexcl):
+		self.molecules.append([residue, nmol, nrexcl])
+
+	def getMoleculeInfo(self, residue):
+		for molecule in self.molecules:
+			if molecule[0] == residue:
+				return molecule
 	def getSystem(self):
 		return self.system
 

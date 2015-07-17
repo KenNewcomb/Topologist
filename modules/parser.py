@@ -38,6 +38,11 @@ def parseSettings(settings_file):
 			angle = this_line[4]
 			angle_constant = this_line[5]
 			setting_object.addAngle(atom1, atom2, atom3, angle, angle_constant)
+		elif this_line[0] == 'molecule':
+			residue = this_line[1]
+			nmol    = this_line[2]
+			nrexcl  = this_line[3]
+			setting_object.addMolecule(residue, nmol, nrexcl)
 		elif this_line[0] == 'output':
 			output = this_line[1]
 			setting_object.addOutput(output)
