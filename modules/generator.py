@@ -22,7 +22,7 @@ def GROMACSAtomtypes(atomtypes, settings):
 def GROMACSAtoms(molecule, settings):
 	global output_file
 	output_file.append("[ atoms ]")
-	output_file.append("\tid\ttype\tresnr\tresidue\t\tatom\tcgnr\tcharge\tmass")
+	output_file.append(";\tid\ttype\tresnr\tresidue\t\tatom\tcgnr\tcharge\tmass")
 	for atom in molecule.getAtoms():
 		output_file.append("\t{0}\t{1}\t{2}\t{3}\t\t{4}\t{5}\t{6}\t{7}".format(atom.getIndex(), atom.getAtomType(), 1, molecule.getResidue(), atom.getAtomName(),1, settings.getAtomInfo(atom.getAtomType())[3], settings.getAtomInfo(atom.getAtomType())[2] ))
 	output_file.append("")
@@ -59,7 +59,7 @@ def GROMACSAngles(angles, settings):
 	output_file.append("[ angles ]")
 	output_file.append(";\ti\tj\tk\tfunc\tangle\tforce.c")
 	for angle in angles:
-		output_file.append("\t{0}\t{1}\t{2}\t{3}\t{4}\t{5}".format(angle.atom1.index, angle.atom2.index, angle.atom3.index, 1, settings.getAngle(angle.atom1, angle.atom2, angle.atom3), settings.getAngleConstant(angle.atom1, angle.atom2, angle.atom3)))
+		output_file.append(";\t{0}\t{1}\t{2}\t{3}\t{4}\t{5}".format(angle.atom1.index, angle.atom2.index, angle.atom3.index, 1, settings.getAngle(angle.atom1, angle.atom2, angle.atom3), settings.getAngleConstant(angle.atom1, angle.atom2, angle.atom3)))
 	output_file.append("")
 
 def GROMACSSystem(settings):

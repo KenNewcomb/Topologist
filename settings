@@ -12,7 +12,7 @@ angle HW OW HW 109.4 1.5
 
 # Molecules
 #        Residue   nmol   nrexcl
-molecule HOH       117    2
+molecule HOH       107    2
 molecule Na        1      1
 
 # Lorentz-Berthlot mixing rules.
