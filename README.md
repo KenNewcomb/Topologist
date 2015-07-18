@@ -43,7 +43,9 @@ There are several keywords that Topologist accepts:
 
 5. **angle**: This keyword is followed by the three groups that particpate in a bend, the equilibrium angle, and the bending force constant.
 
-6. **output**: This keyword specifies the type of topology to be output by the program. At present, Topologist only supports writing GROMACS (.top) files.
+6. **molecule**: This keyword is followed by the residue name, the number of molecules, and the nrexcl (See GROMACS Manual). 
+
+7. **output**: This keyword specifies the type of topology to be output by the program. At present, Topologist only supports writing GROMACS (.top) files.
 
 You may add comments by starting a line with a single "#" character.
 
