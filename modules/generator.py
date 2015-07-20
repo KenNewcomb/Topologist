@@ -59,7 +59,7 @@ def GROMACSAngles(angles, settings):
 	output_file.append("[ angles ]")
 	output_file.append(";\ti\tj\tk\tfunc\tangle\tforce.c")
 	for angle in angles:
-		output_file.append(";\t{0}\t{1}\t{2}\t{3}\t{4}\t{5}".format(angle.atom1.index, angle.atom2.index, angle.atom3.index, 1, settings.getAngle(angle.atom1, angle.atom2, angle.atom3), settings.getAngleConstant(angle.atom1, angle.atom2, angle.atom3)))
+		output_file.append("\t{0}\t{1}\t{2}\t{3}\t{4}\t{5}".format(angle.atom1.index, angle.atom2.index, angle.atom3.index, 1, settings.getAngle(angle.atom1, angle.atom2, angle.atom3), settings.getAngleConstant(angle.atom1, angle.atom2, angle.atom3)))
 	output_file.append("")
 
 def GROMACSSystem(settings):
