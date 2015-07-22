@@ -1,0 +1,4 @@
+# MOLECULE HOH
+topo addbond 0 1
+topo addbond 0 2
+# MOLECULE Na

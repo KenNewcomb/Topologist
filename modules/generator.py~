@@ -82,18 +82,6 @@ def GROMACSMolecules(topology, settings):
 		output_file.append("\t{0}\t{1}".format(molecule.getResidue(), settings.getMoleculeInfo(molecule.getResidue())[1]))
 	output_file.append("")
 
-def writeVMDBonds(topology):
-        vmd_bonds = open('bonds', 'w')
-        vmds = []
-        for molecule in topology.getMolecules():
-                vmds.append("# MOLECULE {0}".format(molecule.getResidue()))
-                for bond in molecule.getBonds():
-                        vmds.append("topo addbond {0} {1}".format(bond.atom1.index-1, bond.atom2.index-1))
-
-        for vmd in vmds:
-                vmd_bonds.write(vmd + "\n")
-
-
 def writeTopology():
 	global output_file
 	topology = open('output', 'w')

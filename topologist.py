@@ -61,3 +61,4 @@ if output_extension == 'top':
 	generator.GROMACSSystem(settings)
 	generator.GROMACSMolecules(topology, settings)
 	generator.writeTopology()
+	generator.writeVMDBonds(topology)
