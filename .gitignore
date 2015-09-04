@@ -2,7 +2,8 @@
 *.pyo
 *.swp
 *.swo
-U*.pdb
-u*.pdb
+*.pdb
 usettings
 *.top
+bonds
+settings

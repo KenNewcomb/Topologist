@@ -4,19 +4,49 @@
 
 [ atomtypes ]
 ;	name	At.Num.	mass	charge	ptype	sigma	epsil
-	OW	8	15.9994	-0.84	A	3.166	0.650
+	OW	8	15.9994	-0.84	A	0.316	0.650
 	HW	1	1.0001	0.42	A	0.0	0.0
-	Na	11	22.989	1.00	A	1.1	2.2
+	U	92	238.028	2.705	A	0.295	0.530
+	OP	8	15.9994	-0.452	A	0.258	1.538
+	OU	8	15.9994	-0.638	A	0.384	0.057
+	P	15	30.9738	0.418	A	0.113	1.538
+	PH	1	1.0001	0.080	A	0.084	0.0498
+	PO	8	15.9994	-0.452	A	0.258	1.538
 
 [ nonbond_params ]
 ;	i	j	func	sigma	eps(c12)kJ/mol
-	OW	HW	1	1.583	0.0
-	OW	Na	1	2.133	1.1958260743101399
-	HW	Na	1	0.55	0.0
+	OW	HW	1	0.158	0.000
+	OW	U	1	0.305	0.587
+	OW	OP	1	0.287	1.000
+	OW	OU	1	0.350	0.192
+	OW	P	1	0.214	1.000
+	OW	PH	1	0.200	0.180
+	OW	PO	1	0.287	1.000
+	HW	U	1	0.147	0.000
+	HW	OP	1	0.129	0.000
+	HW	OU	1	0.192	0.000
+	HW	P	1	0.057	0.000
+	HW	PH	1	0.042	0.000
+	HW	PO	1	0.129	0.000
+	U	OP	1	0.276	0.903
+	U	OU	1	0.340	0.174
+	U	P	1	0.204	0.903
+	U	PH	1	0.190	0.162
+	U	PO	1	0.276	0.903
+	OP	OU	1	0.321	0.296
+	OP	P	1	0.185	1.538
+	OP	PH	1	0.171	0.277
+	OP	PO	1	0.258	1.538
+	OU	P	1	0.248	0.296
+	OU	PH	1	0.234	0.053
+	OU	PO	1	0.321	0.296
+	P	PH	1	0.099	0.277
+	P	PO	1	0.185	1.538
+	PH	PO	1	0.171	0.277
 
 [ moleculetype ]
 ;	molname	nrexcl
-	HOH	2
+	HOH	1
 
 [ atoms ]
 ;	id	type	resnr	residue		atom	cgnr	charge	mass
@@ -26,26 +56,47 @@
 
 [ bonds ]
 ;	i	j	func	length		force.c
-	1	2	1	1.0		1.4
-	1	3	1	1.0		1.4
+	1	2	1	0.1		345000
+	1	3	1	0.1		345000
 
 [ angles ]
 ;	i	j	k	func	angle	force.c
-	2	1	3	1	109.4	1.5
+	2	1	3	1	109.4	383
 
 [ moleculetype ]
 ;	molname	nrexcl
-	Na	1
+	UOP	3
 
 [ atoms ]
 ;	id	type	resnr	residue		atom	cgnr	charge	mass
-	1	Na	1	Na		Na1	1	1.00	22.989
+	1	U	1	UOP		U1	1	2.705	238.028
+	2	U	1	UOP		U2	1	2.705	238.028
+	3	OP	1	UOP		O1	1	-0.452	15.9994
+	4	OP	1	UOP		O2	1	-0.452	15.9994
+	5	OU	1	UOP		O3	1	-0.638	15.9994
+	6	OU	1	UOP		O4	1	-0.638	15.9994
+	7	OU	1	UOP		O5	1	-0.638	15.9994
+	8	OU	1	UOP		O6	1	-0.638	15.9994
+	9	P	1	UOP		P1	1	0.418	30.9738
+	10	PH	1	UOP		H3	1	0.080	1.0001
+	11	PO	1	UOP		O7	1	-0.452	15.9994
+
+[ bonds ]
+;	i	j	func	length		force.c
+	1	5	1	0.1769		853770.0
+	1	6	1	0.1769		853770.0
+	2	7	1	0.1769		853770.0
+	2	8	1	0.1769		853770.0
+	1	3	1	0.2338		187671.2
+	2	4	1	0.2338		187671.2
+	9	11	1	0.1520		484829.7
+	9	10	1	0.1420		484829.7
 
 [ system ]
-WaterandSodium
+WaterandUranylPhosphite
 
 [ molecules ]
 ;	residue	nmol
-	HOH	107
-	Na	1
+	HOH	1000
+	UOP	1
 

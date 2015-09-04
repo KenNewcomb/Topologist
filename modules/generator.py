@@ -37,7 +37,7 @@ def GROMACSNonbonded(atomtypes, settings):
 				if settings.mix == True:
 					sigma = (settings.getSigma(atomtypes[atomtype1])+settings.getSigma(atomtypes[atomtype2]))/2
 					epsilon = (settings.getEpsilon(atomtypes[atomtype1])*settings.getEpsilon(atomtypes[atomtype2]))**(1/2)
-					output_file.append("\t{0}\t{1}\t{2}\t{3}\t{4}".format(atomtypes[atomtype1], atomtypes[atomtype2], 1, sigma, epsilon ))
+					output_file.append("\t{0}\t{1}\t{2}\t{3:.3f}\t{4:.3f}".format(atomtypes[atomtype1], atomtypes[atomtype2], 1, sigma, epsilon ))
 				else:
 					output_file.append("\t{0}\t{1}".format(atomtypes[atomtype1], atomtypes[atomtype2]))
 	output_file.append("")
