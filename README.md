@@ -57,7 +57,7 @@ Topologist is still in its early stages of development and is not quite ready fo
 Features to be implemented:
 * Dihedrals and impropers
 * LAMMPS support
-* Automatic bond, angle detection
+* More robust angle search - the algorithm, as it is currently implemented, requires the atoms forming an angle to be specified in a particular order.
 
 Pull requests welcome!
 
