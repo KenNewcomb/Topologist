@@ -82,17 +82,12 @@ def parsePDB(filename):
 		this_line = line.split()
 		# Set the index, x, y, and z for atom; set the residue type for the molecule
 		index     = opened_file[firstatom:].index(line)+1
-		atomname  = this_line[2]
+		atomtype  = this_line[2]
 		new_molecule.setResidue(this_line[3])
 		x         = float(this_line[5])
 		y         = float(this_line[6])
 		z         = float(this_line[7])
-		# If charges are given,
-		if len(this_line) == 11:
-			atomtype = this_line[10]
-		elif len(this_line) == 9:
-			atomtype = this_line[8]
-		particle = atom.Atom(index, atomname, atomtype, x, y, z)
+		particle = atom.Atom(index, atomtype, x, y, z)
 		new_molecule.addAtom(particle)
 	return new_molecule
 

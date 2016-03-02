@@ -51,8 +51,8 @@
 [ atoms ]
 ;	id	type	resnr	residue		atom	cgnr	charge	mass
 	1	OW	1	HOH		OW	1	-0.84	15.9994
-	2	HW	1	HOH		H1	1	0.42	1.0001
-	3	HW	1	HOH		H2	1	0.42	1.0001
+	2	HW	1	HOH		HW	1	0.42	1.0001
+	3	HW	1	HOH		HW	1	0.42	1.0001
 
 [ bonds ]
 ;	i	j	func	length		force.c
@@ -69,17 +69,17 @@
 
 [ atoms ]
 ;	id	type	resnr	residue		atom	cgnr	charge	mass
-	1	U	1	UOP		U1	1	2.705	238.028
-	2	U	1	UOP		U2	1	2.705	238.028
-	3	OP	1	UOP		O1	1	-0.452	15.9994
-	4	OP	1	UOP		O2	1	-0.452	15.9994
-	5	OU	1	UOP		O3	1	-0.638	15.9994
-	6	OU	1	UOP		O4	1	-0.638	15.9994
-	7	OU	1	UOP		O5	1	-0.638	15.9994
-	8	OU	1	UOP		O6	1	-0.638	15.9994
-	9	P	1	UOP		P1	1	0.418	30.9738
-	10	PH	1	UOP		H3	1	0.080	1.0001
-	11	PO	1	UOP		O7	1	-0.452	15.9994
+	1	U	1	UOP		U	1	2.705	238.028
+	2	U	1	UOP		U	1	2.705	238.028
+	3	OP	1	UOP		OP	1	-0.452	15.9994
+	4	OP	1	UOP		OP	1	-0.452	15.9994
+	5	OU	1	UOP		OU	1	-0.638	15.9994
+	6	OU	1	UOP		OU	1	-0.638	15.9994
+	7	OU	1	UOP		OU	1	-0.638	15.9994
+	8	OU	1	UOP		OU	1	-0.638	15.9994
+	9	P	1	UOP		P	1	0.418	30.9738
+	10	PH	1	UOP		PH	1	0.080	1.0001
+	11	PO	1	UOP		PO	1	-0.452	15.9994
 
 [ bonds ]
 ;	i	j	func	length		force.c
@@ -89,8 +89,23 @@
 	2	8	1	0.1769		853770.0
 	1	3	1	0.2338		187671.2
 	2	4	1	0.2338		187671.2
+	3	9	1	0.1446		484829.7
+	4	9	1	0.1446		484829.7
 	9	11	1	0.1520		484829.7
 	9	10	1	0.1420		484829.7
+
+[ angles ]
+;	i	j	k	func	angle	force.c
+	1	3	9	1	135	800
+	2	4	9	1	135	800
+	3	1	5	1	90	800
+	3	1	6	1	90	800
+	3	9	11	1	135	800
+	4	2	7	1	90	800
+	4	2	8	1	90	800
+	4	9	11	1	135	800
+	5	1	6	1	180	800
+	7	2	8	1	180	800
 
 [ system ]
 WaterandUranylPhosphite

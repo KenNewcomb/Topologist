@@ -12,7 +12,7 @@ class Topology():
 
 	def addMolecule(self, molecule):
 		self.molecules.append(molecule)
-	
+
 	def getMolecules(self):
 		return self.molecules
 
@@ -22,6 +22,7 @@ class Topology():
 			for atom in molecule.getAtoms():
 				if atom.getAtomType() not in atomtypes:
 					atomtypes.append(atom.getAtomType())
+					print("FOUND ATOMTYPE {0}".format(atom.getAtomType()))
 		return atomtypes
 
 	def setOutputType(self, output_type):

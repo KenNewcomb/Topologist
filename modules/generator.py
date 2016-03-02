@@ -24,7 +24,7 @@ def GROMACSAtoms(molecule, settings):
 	output_file.append("[ atoms ]")
 	output_file.append(";\tid\ttype\tresnr\tresidue\t\tatom\tcgnr\tcharge\tmass")
 	for atom in molecule.getAtoms():
-		output_file.append("\t{0}\t{1}\t{2}\t{3}\t\t{4}\t{5}\t{6}\t{7}".format(atom.getIndex(), atom.getAtomType(), 1, molecule.getResidue(), atom.getAtomName(),1, settings.getAtomInfo(atom.getAtomType())[3], settings.getAtomInfo(atom.getAtomType())[2] ))
+		output_file.append("\t{0}\t{1}\t{2}\t{3}\t\t{4}\t{5}\t{6}\t{7}".format(atom.getIndex(), atom.getAtomType(), 1, molecule.getResidue(), atom.getAtomType(),1, settings.getAtomInfo(atom.getAtomType())[3], settings.getAtomInfo(atom.getAtomType())[2] ))
 	output_file.append("")
 
 def GROMACSNonbonded(atomtypes, settings):
